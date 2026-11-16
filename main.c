@@ -173,7 +173,7 @@ if (temperatureQueue == NULL)
         NULL
     );
 /* Create CPU workload task */
-if (xTaskCreate(
+/*if (xTaskCreate(
         vLoadTask,
         "CPU_Load",
         1024,
@@ -184,7 +184,7 @@ if (xTaskCreate(
 {
     printf("Error: CPU Load Task creation failed!\n");
     return 1;
-}
+}*/
     vTaskStartScheduler();
 
     return 0;
