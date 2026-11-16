@@ -52,8 +52,16 @@ if (lastRealTime != 0.0)
 
     printf("Linux Clock Interval: %.3f ms\n", realInterval);
     printf("Linux Clock Deviation: %+.3f ms\n", realDeviation);
-}
 
+    if (realInterval > 1000.0)
+    {
+        printf("DEADLINE CHECK: INTERVAL EXCEEDED 1000 ms\n");
+    }
+    else
+    {
+        printf("DEADLINE CHECK: INTERVAL WITHIN 1000 ms\n");
+    }
+}
 lastRealTime = currentRealTime;
 
         printf("Sensor Task: Temperature = %d C\n", temperature);
