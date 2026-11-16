@@ -35,3 +35,58 @@ This project runs in a Linux-hosted FreeRTOS simulation, not on physical embedde
 - Fault injection and recovery testing
 - Performance graphs and technical report
   
+## Reproducing the Project on Ubuntu
+
+### Prerequisites
+
+- Ubuntu Linux
+- GCC compiler
+- CMake
+- Git
+- POSIX threads support
+
+Install the required tools:
+
+```bash
+sudo apt update
+sudo apt install -y build-essential cmake git
+
+```
+
+### Clone the Project
+
+```bash
+mkdir FreeRTOS_Master_Project
+cd FreeRTOS_Master_Project
+
+git clone https://github.com/Ajithsing-Desing/FreeRTOS-Real-Time-Industrial-Motor-Monitoring.git RTOS_Application
+
+git clone https://github.com/FreeRTOS/FreeRTOS-Kernel.git
+
+cd FreeRTOS-Kernel
+git checkout ca75944d4e9ca59cfa3a9faa6cb8b49e0772ca520
+
+cd ../RTOS_Application
+```
+
+### Build the Project
+
+```bash
+cmake -S . -B build
+cmake --build build -j2
+```
+
+### Run the Simulation
+
+```bash
+./build/rtos_simulation
+```
+
+Press Ctrl + C to stop the simulation.
+
+### Important Notes
+
+This project uses the FreeRTOS GCC POSIX port
+and runs as a Linux-hosted simulation.
+
+It does not currently run on physical STM32 hardware.
